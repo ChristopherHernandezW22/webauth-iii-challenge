@@ -50,7 +50,7 @@ router.get('/users', restricted, (req, res) => {
         })
         .catch(err => {
             console.log(err)
-            res.send(err)
+            res.json(err)
             })
 });
 
@@ -58,7 +58,7 @@ function signToken(user) {
     const payload = {
         username: user.username
     };
-    const secret = process.env.JWT_SECRET || 'Is it secret and safe?';
+    const secret = process.env.JWT_SECRET || "is it secret, is it safe?";
 
     const options = {
         expiresIn: '1h'
